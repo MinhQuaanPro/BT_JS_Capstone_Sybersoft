@@ -1,0 +1,149 @@
+// 1. Import VARIABLES trước (để các file sau dùng được biến)
+@import './theme/variable';
+
+// 2. Import MIXINS sau (mixins cần dùng biến từ variable)
+@import './theme/mixin';
+
+// 3. Import RESET
+@import './theme/reset';
+
+// 4. Import COMPONENTS (header, product, footer...)
+@import './theme/header';
+
+@import './theme/cart';
+
+@import './theme/detail';
+
+@import './theme/admin';
+
+@import './theme/theme-toggle'; 
+
+// 5. Global styles
+body {
+  font-family: $font-primary;
+  background-color: $light-bg;
+  color: $black;
+}
+
+// Product Card Styles
+.product-card {
+  background: $white;
+  border: none;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  transition: all $transition-normal;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  @include card-shadow;
+  
+  .card-img-top {
+    padding: 20px;
+    height: 220px;
+    object-fit: contain;
+    transition: transform $transition-normal;
+  }
+  
+  &:hover .card-img-top {
+    transform: scale(1.05);
+  }
+  
+  .card-body {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $secondary-color;
+    margin-bottom: 0.5rem;
+  }
+  
+  .price {
+    color: $primary-color;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .badge-type {
+    align-self: flex-start;
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: $radius-sm;
+  }
+  
+  .btn-group-custom {
+    margin-top: auto;
+    display: flex;
+    gap: 10px;
+  }
+  
+  @include mobile {
+    .card-img-top { height: 180px; }
+  }
+}
+
+// Footer Styles
+footer {
+  background-color: $secondary-color;
+  color: lighten($secondary-color, 60%);
+  padding-top: 3rem;
+  margin-top: 4rem;
+  
+  h5 {
+    color: $white;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  
+  a {
+    color: lighten($secondary-color, 60%);
+    transition: $transition-fast;
+    
+    &:hover {
+      color: $white;
+      padding-left: 5px;
+    }
+  }
+  
+  .copyright {
+    border-top: 1px solid rgba($white, 0.1);
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+  }
+}
+
+// Admin Table Styles
+.table {
+  &-responsive { overflow-x: auto; }
+  
+  table-layout: fixed;
+  width: 100%;
+  
+  img {
+    max-width: 80px !important;
+    height: 80px;
+    object-fit: contain;
+    border-radius: $radius-md;
+    border: 1px solid #ddd;
+  }
+  
+  th:nth-child(1), td:nth-child(1) { width: 50px; text-align: center; }
+  th:nth-child(2), td:nth-child(2) { width: 100px; text-align: center; }
+  th:nth-child(3), td:nth-child(3) { width: auto; }
+  th:nth-child(4), td:nth-child(4) { width: 150px; text-align: right; }
+  th:nth-child(5), td:nth-child(5) { width: 100px; text-align: center; }
+  th:nth-child(6), td:nth-child(6) { width: 120px; text-align: center; }
+  
+  td {
+    vertical-align: middle !important;
+    padding: 10px !important;
+  }
+}

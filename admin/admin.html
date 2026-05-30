@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="vi" data-bs-theme="light">
+<head>
+    <title>Quản trị sản phẩm - PhoneShop</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="admin-page">
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">
+                <i class="fas fa-mobile-alt me-2"></i>PhoneShop <span class="text-warning">Admin</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- NÚT BÓNG ĐÈN -->
+            <button id="themeToggle" class="btn-toggle-light" title="Bật/Tắt Đèn">
+               <i class="fas fa-lightbulb"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">
+                            <i class="fas fa-home me-1"></i>Trang chủ
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="admin.html">
+                            <i class="fas fa-cogs me-1"></i>Quản trị
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container py-5">
+        
+        <!-- Page Header -->
+        <div class="admin-header mb-4">
+            <h2 class="fw-bold mb-1">
+                <i class="fas fa-cogs me-2 text-primary"></i>Quản lý sản phẩm
+            </h2>
+            <p class="text-muted mb-0">Thêm, sửa, xóa và quản lý danh sách sản phẩm</p>
+        </div>
+
+        <!-- Form Card -->
+        <div class="card admin-card mb-5">
+            <div class="card-header bg-gradient-primary text-white py-3">
+                <h5 class="mb-0">
+                    <i class="fas fa-plus-circle me-2"></i>
+                    <span id="formTitle">Thêm sản phẩm mới</span>
+                </h5>
+            </div>
+            <div class="card-body p-4">
+                <form id="productForm">
+                    <input type="hidden" id="editId">
+                    
+                    <div class="row g-4">
+                        <!-- Product Name -->
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label fw-semibold">
+                                <i class="fas fa-tag me-1 text-primary"></i>Tên sản phẩm <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" class="form-control form-control-lg" id="name" required placeholder="Ví dụ: iPhone 15 Pro Max">
+                        </div>
+                        
+                        <!-- Price -->
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label fw-semibold">
+                                <i class="fas fa-dollar-sign me-1 text-primary"></i>Giá (VNĐ) <span class="text-danger">*</span>
+                            </label>
+                            <input type="number" class="form-control form-control-lg" id="price" required placeholder="29990000">
+                        </div>
+                        
+                        <!-- Type -->
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label fw-semibold">
+                                <i class="fas fa-layer-group me-1 text-primary"></i>Loại <span class="text-danger">*</span>
+                            </label>
+                            <select class="form-select form-select-lg" id="type" required>
+                                <option value="">-- Chọn loại --</option>
+                                <option value="iphone">🍎 iPhone</option>
+                                <option value="samsung">📱 Samsung</option>
+                                <option value="xiaomi">🔥 Xiaomi / Khác</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Image URL -->
+                        <div class="col-md-8 col-lg-6">
+                            <label class="form-label fw-semibold">
+                                <i class="fas fa-image me-1 text-primary"></i>URL hình ảnh <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light"><i class="fas fa-link"></i></span>
+                                <input type="url" class="form-control form-control-lg" id="img" required placeholder="https://...">
+                            </div>
+                        </div>
+                        
+                        <!-- Image Preview -->
+                        <div class="col-md-4 col-lg-2">
+                            <label class="form-label fw-semibold">Xem trước</label>
+                            <div class="img-preview-box rounded border bg-light d-flex align-items-center justify-content-center" style="height: 46px;">
+                                <img id="imgPreview" src="" alt="Preview" style="max-height: 38px; max-width: 100%; display: none;">
+                                <span id="imgPlaceholder" class="text-muted small"><i class="fas fa-image"></i></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Screen -->
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label fw-semibold">
+                                <i class="fas fa-mobile-alt me-1 text-primary"></i>Màn hình
+                            </label>
+                            <input type="text" class="form-control" id="screen" placeholder="6.7 inch, OLED">
+                        </div>
+                        
+                        <!-- Back Camera -->
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label fw-semibold">
+                                <i class="fas fa-camera me-1 text-primary"></i>Camera sau
+                            </label>
+                            <input type="text" class="form-control" id="backcam" placeholder="48MP + 12MP">
+                        </div>
+                        
+                        <!-- Front Camera -->
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label fw-semibold">
+                                <i class="fas fa-camera-retro me-1 text-primary"></i>Camera trước
+                            </label>
+                            <input type="text" class="form-control" id="frontcam" placeholder="12MP">
+                        </div>
+                        
+                        <!-- Description -->
+                        <div class="col-12">
+                            <label class="form-label fw-semibold">
+                                <i class="fas fa-align-left me-1 text-primary"></i>Mô tả
+                            </label>
+                            <textarea class="form-control" id="desc" rows="3" placeholder="Mô tả chi tiết sản phẩm..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Form Actions -->
+                    <div class="d-flex flex-wrap gap-2 mt-4 pt-3 border-top">
+                        <button type="submit" class="btn btn-primary btn-lg px-4" id="btnSubmit">
+                            <i class="fas fa-save me-2"></i>Thêm sản phẩm
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="resetForm()">
+                            <i class="fas fa-redo me-2"></i>Reset
+                        </button>
+                        <button type="button" class="btn btn-warning btn-lg px-4 d-none" id="btnCancel" onclick="cancelEdit()">
+                            <i class="fas fa-times me-2"></i>Hủy sửa
+                        </button>
+                        <span class="text-muted small align-self-center ms-auto">
+                            <i class="fas fa-info-circle me-1"></i>Các trường đánh dấu <span class="text-danger">*</span> là bắt buộc
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Search & Sort Bar -->
+        <div class="admin-toolbar mb-3 p-3 rounded bg-white shadow-sm">
+            <div class="row g-3 align-items-center">
+                <div class="col-md-7 col-lg-8">
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text bg-white border-end-0">
+                            <i class="fas fa-search text-muted"></i>
+                        </span>
+                        <input type="text" class="form-control border-start-0 ps-0" id="searchInput" placeholder="Tìm kiếm theo tên sản phẩm...">
+                    </div>
+                </div>
+                <div class="col-md-5 col-lg-4 text-md-end">
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-outline-primary" onclick="sortProducts('price', 'asc')">
+                            <i class="fas fa-sort-amount-up me-1"></i>Giá tăng
+                        </button>
+                        <button class="btn btn-outline-primary" onclick="sortProducts('price', 'desc')">
+                            <i class="fas fa-sort-amount-down me-1"></i>Giá giảm
+                        </button>
+                        <button class="btn btn-outline-secondary" onclick="renderAdminProducts()">
+                            <i class="fas fa-redo"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Table -->
+        <div class="card admin-card shadow-sm">
+            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h5 class="mb-0 fw-semibold">
+                    <i class="fas fa-list me-2 text-primary"></i>Danh sách sản phẩm
+                    <span class="badge bg-primary rounded-pill ms-2" id="productCount">0</span>
+                </h5>
+                <small class="text-muted">Click vào nút <i class="fas fa-edit"></i> để chỉnh sửa</small>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0 admin-table">
+                    <thead class="table-light">
+                        <tr>
+                            <th width="60" class="text-center">ID</th>
+                            <th width="80" class="text-center">Hình</th>
+                            <th>Tên sản phẩm</th>
+                            <th width="150" class="text-end">Giá</th>
+                            <th width="120" class="text-center">Loại</th>
+                            <th width="140" class="text-center">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminProductList">
+                        <!-- Render here by JS -->
+                        <tr>
+                            <td colspan="6" class="text-center py-5 text-muted">
+                                <i class="fas fa-spinner fa-spin fa-2x mb-3 d-block"></i>
+                                Đang tải danh sách sản phẩm...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0 small">
+                &copy; 2024 PhoneShop Admin. Designed by <strong>YourName</strong>.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/product.js"></script>
+    <script src="../js/admin.js"></script>
+    
+    <!-- Preview Image Script (không ảnh hưởng logic cũ) -->
+    <script>
+    // Preview ảnh khi nhập URL (chỉ là UX enhancement)
+    document.getElementById('img')?.addEventListener('input', function(e) {
+        const preview = document.getElementById('imgPreview');
+        const placeholder = document.getElementById('imgPlaceholder');
+        if (e.target.value) {
+            preview.src = e.target.value;
+            preview.style.display = 'block';
+            placeholder.style.display = 'none';
+        } else {
+            preview.style.display = 'none';
+            placeholder.style.display = 'block';
+        }
+    });
+    </script>
+    <script>
+// Preview ảnh khi nhập URL (chỉ UX, không ảnh hưởng logic)
+document.getElementById('img')?.addEventListener('input', function(e) {
+    const preview = document.getElementById('imgPreview');
+    const placeholder = document.getElementById('imgPlaceholder');
+    if (e.target.value) {
+        preview.src = e.target.value;
+        preview.style.display = 'block';
+        placeholder.style.display = 'none';
+    } else {
+        preview.style.display = 'none';
+        placeholder.style.display = 'block';
+    }
+});
+</script>
+ <script src="../js/theme.js"></script>
+
+</body>
+</html>
