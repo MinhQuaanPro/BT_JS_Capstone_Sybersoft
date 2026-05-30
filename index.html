@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="vi" data-bs-theme="light">
+<head>
+    <title>PhoneShop - Điện thoại chính hãng giá tốt</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Custom CSS (compiled from SCSS) -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- ==================== TOP BANNER ==================== -->
+    <div class="top-banner-center">
+        <a href="#iphoneSection" class="banner-link-center">
+            <img src="./public/images/Screenshot 2026-05-28 154948.png" 
+                 alt="Capstone Sybersoft" 
+                 class="banner-img-center">
+        </a>
+    </div>
+
+    <!-- ==================== MAIN HEADER ==================== -->
+<header class="main-header">
+    <div class="container">
+        <div class="row align-items-center py-3">
+             <!-- Logo + Bóng Đèn -->
+            <div class="col-md-3 col-6">
+                <div class="d-flex align-items-center">
+                    
+                    <!-- NÚT BÓNG ĐÈN -->
+                    <button id="themeToggle" class="btn-toggle-light" title="Bật/Tắt Đèn">
+                        <i class="fas fa-lightbulb"></i>
+                    </button>
+
+                        <a href="index.html" class="logo ms-2">
+                        <i class="fas fa-mobile-alt me-2"></i>
+                        <strong>PhoneShop</strong>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Search -->
+            <div class="col-md-6 d-none d-md-block">
+                <form class="search-box" onsubmit="handleSearch(event)">
+                    <input type="text" class="form-control" placeholder="Tìm sản phẩm..." id="searchInput">
+                    <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            
+            <!-- Actions -->
+            <div class="col-md-3 col-6">
+                <div class="header-actions justify-content-end">
+                    <a href="#" class="action-item"><i class="fas fa-user"></i><span class="d-none d-lg-inline">Đăng nhập</span></a>
+                    <a href="cart.html" class="action-item cart-link"><i class="fas fa-shopping-cart"></i><span class="d-none d-lg-inline">Giỏ hàng</span><span class="cart-count" id="cartCount">0</span></a>
+                    <a href="./admin/admin.html" class="action-item"><i class="fas fa-cog"></i><span class="d-none d-lg-inline">Quản trị</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!-- ==================== CATEGORY NAV ==================== -->
+    <nav class="category-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active"><i class="fas fa-mobile-alt me-1"></i>Điện thoại</a></li>
+                <li><a href="#" class="nav-link"><i class="fas fa-laptop me-1"></i>Laptop</a></li>
+                <li><a href="#" class="nav-link"><i class="fas fa-headphones me-1"></i>Phụ kiện</a></li>
+                <li><a href="#" class="nav-link"><i class="fas fa-clock me-1"></i>Smartwatch</a></li>
+                <li><a href="#" class="nav-link"><i class="fas fa-tv me-1"></i>TV & Audio</a></li>
+                <li><a href="#" class="nav-link"><i class="fas fa-gamepad me-1"></i>Gaming</a></li>
+                <li><a href="#" class="nav-link text-danger"><i class="fas fa-cog me-1"></i>Dịch vụ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== SIDEBAR ADS ==================== -->
+    <div class="sidebar-ads">
+        <div class="sidebar-ad sidebar-left">
+            <div class="ad-sticky">
+                <div class="ad-banner ad-orange">
+                    <div class="ad-header">
+                        <span class="ad-badge">KỲ NGUYÊN MỚI</span>
+                        <span class="ad-badge-new">MẠNH TAY</span>
+                    </div>
+                    <div class="ad-content">
+                        <div class="ad-title">HOT SALE<br>CUỐI TUẦN</div>
+                        <div class="ad-offers">
+                            <div class="offer-item"><span class="offer-percent">Giảm đến<br>50%</span></div>
+                            <div class="offer-item"><span class="offer-install">Trả Chậm<br>0%</span></div>
+                            <div class="offer-item"><span class="offer-voucher">Voucher<br>1 Triệu</span></div>
+                        </div>
+                        <button class="ad-btn">MUA NGAY</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-ad sidebar-right">
+            <div class="ad-sticky">
+                <div class="ad-banner ad-purple">
+                    <div class="ad-header">
+                        <span class="ad-badge">APPLE WEEK</span>
+                        <span class="ad-badge-new">GIÁ SỐC</span>
+                    </div>
+                    <div class="ad-content">
+                        <div class="ad-title">iPhone 15 Series<br>Giảm đến 3TR</div>
+                        <div class="ad-products">
+                            <img src="https://cdn.tgdd.vn/Products/Images/42/305658/Slider/iphone-15-pro-max-thumb-youtube-1020x570.jpg" alt="iPhone">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJtfP-gudZuSIE9rKprsZ8zMlF0DTC_vIdvQ&s" alt="iPhone">
+                            <img src="https://http2.mlstatic.com/D_NQ_NP_946315-MLU77440878254_072024-O.webp" alt="iPhone">
+                        </div>
+                        <div class="ad-gifts"><div class="gift-box">🎁</div><div class="gift-box">🎁</div></div>
+                        <button class="ad-btn">XEM NGAY</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="container py-4">
+        
+        <!-- Hero Promo Banner -->
+        <div class="hero-promo-banner samsung-banner mb-4">
+            <div class="container-fluid p-0">
+                <div class="row align-items-center m-0">
+                    <div class="col-lg-3 text-white text-center text-lg-start ps-3 ps-lg-5 py-3">
+                        <h3 class="fw-bold mb-2">Siêu Phẩm</h3>
+                        <h2 class="fw-bold mb-3 text-warning">Galaxy S24 Ultra</h2>
+                        <div class="samsung-logo mb-3"><strong>SAMSUNG</strong></div>
+                        <ul class="list-unstyled text-start d-inline-block">
+                            <li><i class="fas fa-check-circle text-warning me-2"></i>Camera 200MP</li>
+                            <li><i class="fas fa-check-circle text-warning me-2"></i>Galaxy AI</li>
+                            <li><i class="fas fa-check-circle text-warning me-2"></i>Màn hình QHD+ 6.8"</li>
+                            <li><i class="fas fa-check-circle text-warning me-2"></i>Viền Titan</li>
+                        </ul>
+                        <a href="#iphoneSection" class="btn btn-light btn-sm fw-bold mt-3"><i class="fas fa-arrow-right me-1"></i>Khám phá ngay</a>
+                    </div>
+                    <div class="col-lg-5 text-center py-3">
+                        <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung_galaxy_s24_ultra_256gb_-_1_1.png" 
+                             alt="Samsung Galaxy S24 Ultra" 
+                             class="hero-product-img"
+                             style="max-height: 280px; object-fit: contain; filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));">
+                    </div>
+                    <div class="col-lg-4 text-white text-center pe-3 pe-lg-5 py-3">
+                        <h4 class="fw-bold mb-3">Ưu đãi đặc biệt</h4>
+                        <div class="d-flex justify-content-center gap-2 flex-wrap">
+                            <div class="promo-badge bg-white text-dark p-3 rounded-3 text-center" style="min-width: 120px;">
+                                <div class="fw-bold text-danger fs-4">0%</div><small>Lãi suất</small>
+                            </div>
+                            <div class="promo-badge bg-white text-dark p-3 rounded-3 text-center" style="min-width: 120px;">
+                                <div class="fw-bold text-danger fs-4">Chỉ từ<br>49K</div><small>/ngày</small>
+                            </div>
+                            <div class="promo-badge bg-white text-dark p-3 rounded-3 text-center" style="min-width: 140px;">
+                                <div class="fw-bold text-danger fs-6">Thu cũ đổi mới<br>+2 Triệu</div>
+                            </div>
+                        </div>
+                        <p class="mt-3 small opacity-75">Tặng PMH đến 1 triệu mua phụ kiện</p>
+                        <div class="mt-3"><span class="badge bg-warning text-dark px-3 py-2"><i class="fas fa-gift me-1"></i>Trả góp 0% đến 12 tháng</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter Section (GIỮ NGUYÊN) -->
+        <div class="card border-0 shadow-sm mb-4 p-3">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-4">
+                    <label class="form-label fw-bold mb-1"><i class="fas fa-filter me-1"></i>Lọc theo loại:</label>
+                    <select id="typeFilter" class="form-select bg-light">
+                        <option value="">Tất cả sản phẩm</option>
+                        <option value="iphone">iPhone</option>
+                        <option value="samsung">Samsung</option>
+                        <option value="xiaomi">Xiaomi / Khác</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-bold mb-1"><i class="fas fa-sort me-1"></i>Sắp xếp:</label>
+                    <select id="sortFilter" class="form-select bg-light">
+                        <option value="default">Mặc định</option>
+                        <option value="price-asc">Giá tăng dần</option>
+                        <option value="price-desc">Giá giảm dần</option>
+                        <option value="name-asc">Tên A-Z</option>
+                    </select>
+                </div>
+                <div class="col-md-4 d-grid">
+                    <button class="btn btn-outline-danger" onclick="resetFilter()"><i class="fas fa-redo me-1"></i>Đặt lại bộ lọc</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ✅ THÊM: Container hiển thị kết quả tìm kiếm -->
+            <div id="searchResults" class="row g-4" style="display: none;"></div>
+        <!-- ==================== 3 KHUNG SẢN PHẨM MỚI ==================== -->
+        
+        <!-- Khung 1: iPhone -->
+        <section class="product-carousel-section mb-5" id="iphoneSection">
+            <div class="section-header">
+                <h3><i class="fab fa-apple text-danger me-2"></i>iPhone Chính Hãng</h3>
+                <a href="#" class="view-all" onclick="filterByType('iphone'); return false;">Xem tất cả <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-track" id="iphoneTrack">
+                    <div class="col-12 text-center py-3"><div class="spinner-border text-primary spinner-border-sm"></div> Đang tải...</div>
+                </div>
+                <button class="carousel-btn next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <!-- Khung 2: Samsung -->
+        <section class="product-carousel-section mb-5" id="samsungSection">
+            <div class="section-header">
+                <h3><i class="fas fa-mobile-alt text-primary me-2"></i>Samsung Galaxy</h3>
+                <a href="#" class="view-all" onclick="filterByType('samsung'); return false;">Xem tất cả <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-track" id="samsungTrack">
+                    <div class="col-12 text-center py-3"><div class="spinner-border text-primary spinner-border-sm"></div> Đang tải...</div>
+                </div>
+                <button class="carousel-btn next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <!-- Khung 3: Gợi Ý Cho Bạn (Gradient) -->
+        <section class="product-carousel-section suggestion-section mb-5" id="suggestionSection">
+            <div class="section-header">
+                <h3><i class="fas fa-star text-warning me-2"></i>Gợi Ý Cho Bạn</h3>
+            </div>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-track" id="suggestionTrack">
+                    <div class="col-12 text-center py-3"><div class="spinner-border text-primary spinner-border-sm"></div> Đang tải...</div>
+                </div>
+                <button class="carousel-btn next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <!-- Product List Cũ (Ẩn đi, giữ lại để fallback) -->
+        <div id="listProduct" class="row g-4" style="display: none;">
+            <div class="col-12 text-center py-5">
+                <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
+                <p class="mt-2 text-muted">Đang tải sản phẩm...</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5><i class="fas fa-store me-2"></i>Về PhoneShop</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#"><i class="fas fa-chevron-right me-1 small"></i>Giới thiệu</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-1 small"></i>Hệ thống cửa hàng</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-1 small"></i>Tuyển dụng</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-1 small"></i>Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5><i class="fas fa-headset me-2"></i>Hỗ trợ khách hàng</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#"><i class="fas fa-chevron-right me-1 small"></i>Hướng dẫn mua hàng</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-1 small"></i>Chính sách bảo hành</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-1 small"></i>Chính sách đổi trả</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-1 small"></i>Giao hàng & thanh toán</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5><i class="fas fa-info-circle me-2"></i>Thông tin liên hệ</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2 text-warning"></i>123 Đường ABC, Quận 1, TP.HCM</li>
+                        <li><i class="fas fa-phone me-2 text-warning"></i>1900 1234</li>
+                        <li><i class="fas fa-envelope me-2 text-warning"></i>support@phoneshop.vn</li>
+                        <li><i class="fas fa-clock me-2 text-warning"></i>8:00 - 22:00 (T2-CN)</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5><i class="fas fa-share-alt me-2"></i>Kết nối với chúng tôi</h5>
+                    <div class="d-flex gap-2 mb-3">
+                        <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <p class="small">Đăng ký nhận tin khuyến mãi:</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control form-control-sm" placeholder="Email của bạn">
+                        <button class="btn btn-danger btn-sm">Gửi</button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright text-center">
+                <p class="mb-0">&copy; 2024 PhoneShop. Designed by <strong>YourName</strong>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="js/product.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/filter.js"></script>
+    
+   
+</button>
+</body>
+</html>

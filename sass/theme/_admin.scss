@@ -1,0 +1,178 @@
+// ==================== ADMIN PAGE STYLES ====================
+
+body.admin-page {
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+// Page Header
+.admin-header {
+  padding: 20px 0;
+  border-bottom: 1px solid #dee2e6;
+  margin-bottom: 30px;
+}
+
+// Admin Card
+.admin-card {
+  background: #ffffff;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: box-shadow 0.3s;
+  
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+  
+  .card-header {
+    border-radius: 12px 12px 0 0 !important;
+    border-bottom: 1px solid #dee2e6;
+  }
+}
+
+// Gradient Header
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+}
+
+// Form Styles
+.form-control-lg, .form-select-lg {
+  font-size: 1rem;
+  padding: 12px 16px;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+}
+
+.form-label {
+  margin-bottom: 8px;
+  color: #212529;
+  font-weight: 600;
+}
+
+// Image Preview Box
+.img-preview-box {
+  overflow: hidden;
+  border: 2px dashed #dee2e6;
+  transition: border-color 0.2s;
+  
+  &:hover {
+    border-color: #0d6efd;
+  }
+}
+
+// Admin Toolbar
+.admin-toolbar {
+  border: 1px solid #dee2e6;
+  background: white;
+  border-radius: 8px;
+  
+  .input-group {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .btn-group .btn {
+    border-radius: 8px !important;
+    margin-left: -1px;
+    
+    &:first-child {
+      border-top-left-radius: 8px !important;
+      border-bottom-left-radius: 8px !important;
+      margin-left: 0;
+    }
+    
+    &:last-child {
+      border-top-right-radius: 8px !important;
+      border-bottom-right-radius: 8px !important;
+    }
+  }
+}
+
+// Admin Table
+.admin-table {
+  th {
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 16px !important;
+    background: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+  }
+  
+  td {
+    padding: 16px !important;
+    vertical-align: middle;
+    border-bottom: 1px solid #dee2e6;
+    
+    &:first-child {
+      font-weight: 600;
+      color: #0d6efd;
+    }
+  }
+  
+  // Price
+  td:nth-child(4) {
+    font-weight: 700;
+    color: #0d6efd;
+  }
+  
+  // Type badge
+  .badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+  
+  // Action buttons
+  .btn-sm {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+  
+  // Hover effect
+  tbody tr:hover {
+    background: rgba(13, 110, 253, 0.03);
+  }
+}
+
+// Responsive
+@media (max-width: 767px) {
+  .admin-header {
+    padding: 15px 0;
+    h2 { font-size: 1.3rem; }
+  }
+  
+  .admin-card .card-body {
+    padding: 20px !important;
+  }
+  
+  .admin-toolbar {
+    padding: 15px !important;
+  }
+  
+  .admin-table {
+    font-size: 0.9rem;
+    
+    th, td {
+      padding: 12px 8px !important;
+    }
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.admin-card {
+  animation: fadeIn 0.4s ease-out;
+}

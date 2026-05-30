@@ -1,0 +1,78 @@
+// ==================== RESPONSIVE MIXINS ====================
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile - 1}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $breakpoint-mobile) and (max-width: #{$breakpoint-tablet - 1}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+
+// ✅ THÊM MIXIN NÀY (quan trọng)
+@mixin tablet-down {
+  @media (max-width: #{$breakpoint-tablet - 1}) {
+    @content;
+  }
+}
+
+// Mixin breakpoint linh hoạt (dùng như cũ)
+@mixin breakpoint($size) {
+  @if $size == mobile {
+    @media (max-width: #{$breakpoint-mobile - 1}) { @content; }
+  } @else if $size == tablet {
+    @media (min-width: $breakpoint-mobile) and (max-width: #{$breakpoint-tablet - 1}) { @content; }
+  } @else if $size == desktop {
+    @media (min-width: $breakpoint-tablet) { @content; }
+  }
+}
+
+// ==================== FLEXBOX MIXINS ====================
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// ==================== SHADOW MIXIN ====================
+@mixin card-shadow {
+  box-shadow: $shadow-sm;
+  transition: transform $transition-normal, box-shadow $transition-normal;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-md;
+  }
+}
+
+// ==================== BUTTON MIXIN ====================
+@mixin btn-primary {
+  background-color: $primary-color;
+  border: none;
+  color: $white;
+  padding: 10px 20px;
+  border-radius: $radius-md;
+  font-weight: 600;
+  cursor: pointer;
+  transition: $transition-normal;
+  
+  &:hover {
+    background-color: $primary-hover;
+    transform: translateY(-2px);
+  }
+}
